@@ -35,6 +35,6 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"agency-boilerplate": "../agency/agency-boilerplate"
+		"agency-boilerplate": "git+https://git@github.com/StephanGerbeth/agency-boilerplate.git#feature/packages"
 	}
 }
