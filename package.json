@@ -1,0 +1,40 @@
+{
+	"name": "agency-pkg-base",
+	"version": "0.0.1",
+	"description": "agency - frontend package base",
+	"keywords": [
+		"boilerplate",
+		"package",
+		"base"
+	],
+	"homepage": "https://github.com/StephanGerbeth/agency-pkg-base#readme",
+	"bugs": {
+		"url": "https://github.com/StephanGerbeth/agency-pkg-base/issues"
+	},
+	"license": "MIT",
+	"author": "Stephan Gerbeth <stephan.gerbeth@gmail.com>",
+	"contributors": [
+		{
+			"name": "Stephan Gerbeth",
+			"email": "stephan.gerbeth@grabarzundpartner.de"
+		},
+		{
+			"name": "Thorn Walli",
+			"email": "lammpee@gmail.com; thorn.walli@grabarzundpartner.de"
+		}
+	],
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/StephanGerbeth/agency-pkg-base.git"
+	},
+	"scripts": {
+		"install": "node ./install.js",
+		"dev": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=package-development --server=agency-server --packageDev=true",
+		"prod": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=production --server=agency-server --packageDev=true"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"agency-boilerplate": "../agency/agency-boilerplate"
+	}
+}
