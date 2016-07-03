@@ -30,8 +30,8 @@
 	},
 	"scripts": {
 		"install": "node ./install.js",
-		"dev": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=package-development --server=agency-server --packageDev=true",
-		"prod": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=production --server=agency-server --packageDev=true"
+		"dev": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=package-development --server=agency-server",
+		"prod": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=production --server=agency-server"
 	},
 	"dependencies": {},
 	"devDependencies": {
