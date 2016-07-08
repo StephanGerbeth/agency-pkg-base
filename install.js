@@ -1,7 +1,7 @@
 /**
  * Copy js source files to root from installed package, for use relative path with require.
- * require("agency-pkg-name/relative/path");
- * @version 0.0.1
+ * require("prefix-pkg-name/relative/path");
+ * @version 0.0.2
  */
 
 "use strict";
@@ -42,13 +42,15 @@ function preparePackage() {
         }
     };
     var src = path.join(process.cwd(), 'src', 'js');
-    fs.readdirSync(process.cwd()).forEach(function(childItemName) {
-        var curPath = path.join(process.cwd(), childItemName);
-        if (excludedFiles.indexOf(path.basename(curPath)) === -1 && fs.statSync(curPath).isFile()) {
-            fs.unlinkSync(curPath);
-        }
-    });
-    copyRecursiveSync(src, process.cwd());
+    if (fs.existsSync(src)) {
+        fs.readdirSync(process.cwd()).forEach(function(childItemName) {
+            var curPath = path.join(process.cwd(), childItemName);
+            if (excludedFiles.indexOf(path.basename(curPath)) === -1 && fs.statSync(curPath).isFile()) {
+                fs.unlinkSync(curPath);
+            }
+        });
+        copyRecursiveSync(src, process.cwd());
+    }
 }
 
 isDependencyPackage(preparePackage);
