@@ -1,7 +1,7 @@
 /**
  * Copy js source files to root from installed package, for use relative path with require.
  * require("prefix-pkg-name/relative/path");
- * @version 0.0.2
+ * @version 0.0.3
  */
 
 "use strict";
@@ -21,8 +21,8 @@ function isDependencyPackage(cb) {
  * Clean package root and exclude src/js
  */
 function preparePackage() {
-    var excludedFiles = ['package.json', 'README.md', 'LICENSE.md', '.gitignore', '.npmignore', 'index.js', 'index.pcss'];
-    var excludedSrcJsFiles = ['main.js', 'packages.js'];
+    var ignoreFiles = ['package.json', 'README.md', 'LICENSE.md', '.gitignore', '.npmignore', '.editorconfig', 'index.js', 'index.pcss'];
+    var ignoreSrcJsFiles = ['main.js', 'packages.js'];
     var copyRecursiveSync = function(src, dest) {
         var exists = fs.existsSync(src);
         var stats = exists && fs.statSync(src);
@@ -31,21 +31,21 @@ function preparePackage() {
             if (!fs.existsSync(dest)) {
                 fs.mkdirSync(dest);
             }
-            fs.readdirSync(src).forEach(function(childItemName) {
-                copyRecursiveSync(path.join(src, childItemName),
-                    path.join(dest, childItemName));
+            fs.readdirSync(src).forEach(function(filename) {
+                copyRecursiveSync(path.join(src, filename),
+                    path.join(dest, filename));
             });
         } else {
-            if (excludedSrcJsFiles.indexOf(path.basename(src)) === -1) {
+            if (ignoreSrcJsFiles.indexOf(path.basename(src)) === -1) {
                 fs.linkSync(src, dest);
             }
         }
     };
     var src = path.join(process.cwd(), 'src', 'js');
     if (fs.existsSync(src)) {
-        fs.readdirSync(process.cwd()).forEach(function(childItemName) {
-            var curPath = path.join(process.cwd(), childItemName);
-            if (excludedFiles.indexOf(path.basename(curPath)) === -1 && fs.statSync(curPath).isFile()) {
+        fs.readdirSync(process.cwd()).forEach(function(filename) {
+            var curPath = path.join(process.cwd(), filename);
+            if (ignoreFiles.indexOf(path.basename(curPath)) === -1 && fs.statSync(curPath).isFile()) {
                 fs.unlinkSync(curPath);
             }
         });
