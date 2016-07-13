@@ -1,7 +1,7 @@
 "use strict";
 
-var Vector = require('./Vector');
-var Bounds = require('./Bounds');
+var Vector = require('../Vector');
+var Bounds = require('../Bounds');
 var Enum = require('enum');
 var remove = require('lodash/remove');
 var animationFrame = global.animationFrame;
@@ -200,7 +200,7 @@ function updateBounds(bounds, position, offset, dimension) {
 
 function updateScroll(scrollX, scrollY, content, scrollPosition, scrollRange, scrollDimension, viewportDimension) {
     updateScrollDimension(content, scrollDimension);
-    updateScrollRange(scrollRange, scrollDimension, viewportDimension);    
+    updateScrollRange(scrollRange, scrollDimension, viewportDimension);
     updateScrollPosition(scrollX, scrollY, scrollPosition);
 }
 

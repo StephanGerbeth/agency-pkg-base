@@ -1,7 +1,7 @@
 'use strict';
 
-var Controller = require('../Controller');
-var DomModel = require('../DomModel');
+var Controller = require('../../Controller');
+var DomModel = require('../../DomModel');
 var browserHistory = require('agency-pkg-services/history');
 
 module.exports = Controller.extend({

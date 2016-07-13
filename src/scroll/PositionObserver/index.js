@@ -1,10 +1,10 @@
 "use strict";
 
-var Controller = require('../Controller');
-var DomModel = require('../DomModel');
-var dataTypeDefinition = require('../dataTypeDefinition');
-var Vector = require('../Vector');
-var Bounds = require('../Bounds');
+var Controller = require('../../Controller');
+var DomModel = require('../../DomModel');
+var dataTypeDefinition = require('../../dataTypeDefinition');
+var Vector = require('../../Vector');
+var Bounds = require('../../Bounds');
 
 var element = require('agency-pkg-utils/element');
 var viewport = require('agency-pkg-services/viewport');

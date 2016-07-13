@@ -27,8 +27,8 @@
     },
     "scripts": {
         "install": "node ./install.js",
-        "dev": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=package-development --server=agency-server",
-        "prod": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=node_modules/agency-boilerplate/env/config/tasks.json --env=production --server=agency-server"
+        "dev": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=env/config/tasks.json --env=package-development --server=agency-server",
+        "prod": "node node_modules/gulp/bin/gulp run --serverConfig=node_modules/agency-boilerplate/env/config/local.json --configTasks=env/config/tasks.json --env=production --server=agency-server"
     },
     "dependencies": {
         "ampersand-collection": "^1.6.1",
@@ -36,7 +36,7 @@
         "ampersand-state": "^4.9.1",
         "ampersand-view": "^10.0.0",
         "enum": "^2.2.0",
-    "jquery": "^2.1.4"
+        "jquery": "^2.1.4"
     },
     "devDependencies": {
         "agency-boilerplate": "git+https://git@github.com/StephanGerbeth/agency-boilerplate.git#feature/packages"

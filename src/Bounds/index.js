@@ -1,6 +1,6 @@
 "use strict";
 
-var Vector = require('./Vector');
+var Vector = require('../Vector');
 /*
  * Bounds Object
  * Contains the min and max Coordinates of an Object

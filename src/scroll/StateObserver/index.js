@@ -1,6 +1,6 @@
 "use strict";
 
-var PositionObserver = require('./PositionObserver');
+var PositionObserver = require('../PositionObserver');
 
 module.exports = PositionObserver.extend({
 

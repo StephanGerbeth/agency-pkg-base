@@ -1,7 +1,7 @@
 "use strict";
 
 var AmpersandModel = require('ampersand-model');
-var dataTypeDefinition = require('./dataTypeDefinition');
+var dataTypeDefinition = require('../dataTypeDefinition');
 
 module.exports = AmpersandModel.extend(dataTypeDefinition, {
 
