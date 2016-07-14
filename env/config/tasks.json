@@ -171,14 +171,36 @@
     "prefix": "grid",
     "columnHasPrefix": true,
     "columns": 12,
-    "gutterWidth": "0.9375rem",
     "columnPrefix": "col",
-    "wrapperBreakpoints": ["md", "lg"],
     "breakpoints": {
-      "xs": "30em",
-      "sm": "48em",
-      "md": "62em",
-      "lg": "75em"
+      "default": {
+        "gutterWidth": "0.9375rem"
+      },
+      "xs": {
+        "width": "30em",
+        "wrapper": {
+          "margin": "auto",
+          "max-width" : "30em"
+        }
+      },
+      "sm": {
+        "width": "48em",
+        "wrapper": {
+          "max-width" : "48em"
+        }
+      },
+      "md": {
+        "width": "62em",
+        "wrapper": {
+          "max-width" : "62em"
+        }
+      },
+      "lg": {
+        "width": "75em",
+        "wrapper": {
+          "max-width" : "75em"
+        }
+      }
     },
     "files": {
       "dest": "./generated/pcss/",
