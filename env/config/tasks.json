@@ -86,9 +86,9 @@
       "layout": "agency-pkg-layouts/default",
       "renderingOnce" : false,
       "files": {
-        "src": ["./node_modules/agency-pkg-docs/docs/*.hbs"],
+        "src": ["./node_modules/agency-pkg-docs/docs-pkg/*.hbs"],
         "dest": "<%= destination %>/docs/",
-        "base": "./node_modules/agency-pkg-docs/docs/"
+        "base": "./node_modules/agency-pkg-docs/docs-pkg/"
       },
       "data": {
         "cwd": "./node_modules/agency-pkg-docs/docs/data/",
@@ -101,7 +101,7 @@
       "files": {
         "src": ["./src/**/*.hbs", "./test/tmpl/partials/**/*.hbs", "!./test/tmpl/partials/common/**/*.hbs", "!./test/tmpl/partials/layouts/**/*.hbs"],
         "dest": "<%= destination %>/docs/",
-        "base": "./test/tmpl/"
+        "base": "."
       }
     }, {
       "name": "docs-packages",
