@@ -1,7 +1,7 @@
 /**
  * Copy js source files to root from installed package, for use relative path with require.
  * require("prefix-pkg-name/relative/path");
- * @version 0.0.4
+ * @version 0.0.5
  */
 
 "use strict";
@@ -53,6 +53,7 @@ function preparePackage() {
     }
     deleteFolderRecursive(srcPkg);
     deleteFolderRecursive(path.join(process.cwd(), 'test'));
+    deleteFolderRecursive(path.join(process.cwd(), 'env'));
 }
 
 /**
