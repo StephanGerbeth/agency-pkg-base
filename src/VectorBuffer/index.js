@@ -8,7 +8,7 @@ function VectorBuffer(size) {
         return new VectorBuffer(size);
     }
     this.size = size;
-    fill(Array(this.size), new Vector());
+    this.list = fill(Array(this.size), new Vector());
 }
 
 VectorBuffer.prototype.list = [];
