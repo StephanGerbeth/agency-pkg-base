@@ -1,5 +1,8 @@
 "use strict";
 
+var DEG_TO_RAD = Math.PI / 180;
+var RAD_TO_DEG = 180 / Math.PI;
+
 function Vector(x, y, z) {
     if (!(this instanceof Vector)) {
         return new Vector(x, y, z);
@@ -50,8 +53,12 @@ Vector.prototype.resetValues = function(x, y, z) {
 Vector.prototype.resetByRad = function(rad) {
     this.x = Math.cos(rad);
     this.y = Math.sin(rad);
-    this.z = Math.tan(rad);
+    this.z = 0;
     return this;
+};
+
+Vector.prototype.resetByAngle = function(angle) {
+    return this.resetByRad(angle * DEG_TO_RAD);
 };
 
 Vector.prototype.add = function(vector){
@@ -176,7 +183,7 @@ Vector.prototype.normalizeLocal = function() {
 
 function normalize(scope, result) {
     var l = scope.length();
-    if(l > 1) {
+    if(l > 0) {
         result.setX(scope.x/l).setY(scope.y/l).setZ(scope.z/l);
     }
     return result;
@@ -228,12 +235,33 @@ function abs(scope, result) {
 }
 
 Vector.prototype.angle = function() {
+    return this.rad() * RAD_TO_DEG;
+};
+
+Vector.prototype.angleRelativeTo = function(vector) {
+    return this.radRelativeTo(vector) * RAD_TO_DEG;
+};
+
+// range of angle: 0 - 360
+Vector.prototype.angleBetween = function(vector) {
+    return this.radBetween(vector) * RAD_TO_DEG;
+};
+
+Vector.prototype.rad = function() {
     return Math.atan2(this.y, this.x);
 };
 
+Vector.prototype.radRelativeTo = function(vector) {
+    var relAngle = this.rad() - vector.rad();
+    relAngle += Math.PI * 2 + Math.PI * 2 + Math.PI;
+    relAngle %= Math.PI * 2;
+    relAngle -= Math.PI;
+    return relAngle;
+};
+
+// range of rad: -(Math.PI * 2) - +(Math.PI * 2)
 Vector.prototype.radBetween = function(vector) {
-    return Math.atan2(vector.y,vector.x) - Math.atan2(this.y,this.x);
-    // return Math.atan2(this.y - vector.y, this.x - vector.x);
+    return Math.atan2(vector.y,vector.x) - this.rad();
 };
 
 module.exports = Vector;
