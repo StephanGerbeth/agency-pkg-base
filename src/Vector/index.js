@@ -57,8 +57,8 @@ Vector.prototype.resetByRad = function(rad) {
     return this;
 };
 
-Vector.prototype.resetByAngle = function(angle) {
-    return this.resetByRad(angle * DEG_TO_RAD);
+Vector.prototype.resetByDegree = function(degree) {
+    return this.resetByRad(degree * DEG_TO_RAD);
 };
 
 Vector.prototype.add = function(vector){
@@ -234,16 +234,16 @@ function abs(scope, result) {
         .setZ((scope.z + (scope.z >> 31)) ^ (scope.z >> 31));
 }
 
-Vector.prototype.angle = function() {
+Vector.prototype.degree = function() {
     return this.rad() * RAD_TO_DEG;
 };
 
-Vector.prototype.angleRelativeTo = function(vector) {
+Vector.prototype.degreeRelativeTo = function(vector) {
     return this.radRelativeTo(vector) * RAD_TO_DEG;
 };
 
 // range of angle: 0 - 360
-Vector.prototype.angleBetween = function(vector) {
+Vector.prototype.degreeBetween = function(vector) {
     return this.radBetween(vector) * RAD_TO_DEG;
 };
 
@@ -252,11 +252,11 @@ Vector.prototype.rad = function() {
 };
 
 Vector.prototype.radRelativeTo = function(vector) {
-    var relAngle = this.rad() - vector.rad();
-    relAngle += Math.PI * 2 + Math.PI * 2 + Math.PI;
-    relAngle %= Math.PI * 2;
-    relAngle -= Math.PI;
-    return relAngle;
+    var relRad = this.rad() - vector.rad();
+    relRad += Math.PI * 2 + Math.PI * 2 + Math.PI;
+    relRad %= Math.PI * 2;
+    relRad -= Math.PI;
+    return relRad;
 };
 
 // range of rad: -(Math.PI * 2) - +(Math.PI * 2)
